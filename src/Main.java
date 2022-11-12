@@ -16,11 +16,18 @@ public class Main {
         Truck truck3 = new Truck("MAZ", "tr431", 9.5);
         Truck truck4 = new Truck("VOLVO", "A456B", 12.6);
 
-        Driver_B volodimir = new Driver_B<>("Владимир Ильич Брежнев", "B", 3);
+        DriverB volodimir = new DriverB("Владимир Ильич Брежнев", "B", 3);
         System.out.println(volodimir.moveTransport(car1));
         System.out.println(volodimir.claimContesting(car1));
-        Driver_C igor = new Driver_C<>("Nikitin Igor Valerievich", "C", 5);
-        System.out.println(igor.claimContesting(bus3));
+        Driver_C igor = new Driver_C("Nikitin Igor Valerievich", "C", 5);
+        System.out.println(igor.claimContesting(truck3));
+
+        truck1.setLoadCapacity(Truck.LoadCapacity.N2);
+        System.out.println(Truck.LoadCapacity.determineCapacity(truck1));
+        System.out.println(Truck.LoadCapacity.determineCapacity(truc2));
+        car3.setBodyType(Car.BodyType.CROSSOVER);
+        System.out.println(Car.BodyType.determineBodyType(car3));
+
 
     }
 }
