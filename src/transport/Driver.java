@@ -12,6 +12,7 @@ public abstract class Driver <A extends Transport> {
         return  transport.startMotion();
     }
     public String claimContesting (A transport) {
+        transport.setDriver(this);
         return "Водитель " + this.toString() + " управляет " + transport.toString() + " и готов к соревнованиям";
     }
 

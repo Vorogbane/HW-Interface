@@ -9,6 +9,7 @@ public class Bus extends Transport implements Contesting {
         BIG("61-80"),
         VERY_BIG("81-120");
 
+
         public static String determineCapacity (Bus bus) {
             Bus.Capacity a = null;
             if (bus.getCapacity() != null) {
@@ -42,6 +43,15 @@ public class Bus extends Transport implements Contesting {
     };
 
     Capacity capacity;
+
+    public String checkIfDiagnosed () {
+        if (this.getDriver().getLicense() == null || !this.getDriver().getLicense().matches("[A-Za-z0-9]{1,2}")) {
+            throw new RuntimeException("Необходимо указать тип прав!");
+        }
+        return "Автобусам не над проходить диагностику";
+    }
+
+
 
     public Capacity getCapacity() {
         return capacity;
